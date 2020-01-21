@@ -24,7 +24,7 @@ pipeline {
                     -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
                     -Dsonar.sources=. \
                     -Dsonar.host.url=https://sonarqube.appserver.id \
-                    -Dsonar.login=jenkins'
+                    -Dsonar.login=jenkins -X'
                                 }
         }
         
