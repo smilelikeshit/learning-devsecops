@@ -15,7 +15,7 @@ pipeline {
         stage('SonarQube analysis') {
              agent {
                 docker { image 'newtmitch/sonar-scanner:alpine' 
-                         args '-u root --entrypoint=\'\' -v $(pwd):/usr/src'
+                         args '-u root --entrypoint=\'\' -v lib-sonar:/usr/src'
                     }
              }
 
