@@ -14,7 +14,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
              agent {
-                docker { image 'newtmitch/sonar-scanner ' 
+                docker { image 'skilldlabs/sonar-scanner' 
                          args '-u root --entrypoint=\'\''
                     }
              }
