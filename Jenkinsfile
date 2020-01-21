@@ -3,9 +3,10 @@ pipeline {
     stages {
         stage('versioning') {
             agent {
-                docker { image 'alpine/git' }
+                docker { image 'alpine:latest' }
             }
             steps {
+                sh 'apk add git'
                 sh 'git version'
             }
         }
