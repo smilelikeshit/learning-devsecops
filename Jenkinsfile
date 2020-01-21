@@ -4,7 +4,7 @@ pipeline {
 
         stage('versioning') {
              agent {
-                docker { image 'docker pull alpine/git' }
+                docker { image 'alpine/git' }
             }
             steps {
                sh 'git version'
