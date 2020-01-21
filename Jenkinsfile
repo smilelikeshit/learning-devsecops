@@ -4,10 +4,10 @@ pipeline {
 
         stage('versioning') {
              agent {
-                docker { image 'alpine/git' }
+                docker { image 'alpine:latest' }
             }
             steps {
-               sh 'git version'
+               sh 'uname -a'
             }
         }
     }
