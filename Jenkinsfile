@@ -1,5 +1,12 @@
 pipeline {
     agent none
+
+     environment {
+        PASSWORD = "${env.PASSWORD}"
+        USERNAME = "${env.USERNAME}"
+    }
+
+
     stages {
         stage('versioning') {
             agent {
@@ -25,7 +32,7 @@ pipeline {
                     -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
                     -Dsonar.sources=. \
                     -Dsonar.host.url=https://sonarqube.appserver.id \
-                    -Dsonar.login=jenkins'
+                    -Dsonar.login=jenkins -Dsonar.login=“${USERNAME}” -Dsonar.login=“${PASSWORD}” -X'
              }
         }
 
