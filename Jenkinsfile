@@ -12,11 +12,20 @@ pipeline {
                 sh 'git version'
             }
         }
+        
         stage('SonarQube analysis') {
              agent {
                 docker { image 'newtmitch/sonar-scanner:alpine' 
                          args '-u root --entrypoint=\'\' -v lib-sonar:/usr/src'
                     }
+             }
+
+             steps {
+                 sh 'sonar-scanner \
+                -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=https://sonarqube.appserver.id \
+                -Dsonar.login=jenkins'
              }
 
            
