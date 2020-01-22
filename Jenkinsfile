@@ -18,7 +18,7 @@ pipeline {
                 sh 'apk add git'
                 sh 'git version'
             }
-        }
+        } 
 
         stage('SonarQube analysis') {
              agent {
@@ -28,13 +28,13 @@ pipeline {
              }
 
              steps {
-                 withSonarQubeEnv('sonarqube-server') {
+                 
                     sh 'sonar-scanner \
                         -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=https://sonarqube.appserver.id \
-                        -Dsonar.login=jenkins -X'
-                }
+                        -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
+               
              }
         }
 
