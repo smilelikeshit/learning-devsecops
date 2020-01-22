@@ -28,11 +28,13 @@ pipeline {
              }
 
              steps {
-                 sh 'sonar-scanner \
-                    -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=https://sonarqube.appserver.id \
-                    -Dsonar.login=jenkins -Dsonar.login=“${USERNAME}” -Dsonar.login=“${PASSWORD}” -X'
+                 withSonarQubeEnv('sonarqube-server') {
+                    sh 'sonar-scanner \
+                        -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarqube.appserver.id \
+                        -Dsonar.login=jenkins -X'
+                }
              }
         }
 
