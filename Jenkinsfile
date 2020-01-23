@@ -12,19 +12,19 @@ pipeline {
     stages {
 
         agent any
-        /* stage('versioning') {
-            agent {
+        stage('versioning') {
+           /* agent {
                 docker { image 'alpine:latest' 
                          args '-u root'
                 }
-            }
+            } */
             steps {
-                sh 'apk add git'
-                sh 'git version'
+                sh 'echo "HELLO WOLRD"'
+                
             }
-        } */
+        
 
-        stage('SonarQube analysis') {
+        /*stage('SonarQube analysis') {
 
             
              def scannerHome = tool 'sonarscanner';
@@ -37,7 +37,7 @@ pipeline {
                 }
 
              }
-        }  
+        } */ 
         
     }
 }
