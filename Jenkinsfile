@@ -41,7 +41,7 @@ pipeline {
 
              post {
                  always {
-                        archiveArtifacts artifacts: 'report-task.txt', fingerprint: true
+                        archiveArtifacts artifacts: '/usr/src/.scannerwork/', fingerprint: true
 
                  }
              }
