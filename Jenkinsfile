@@ -1,20 +1,32 @@
 pipeline {
-     agent none
-     environment {
-        PASSWORD = "${env.PASSWORD}"
-        USERNAME = "${env.USERNAME}"
-    }
-
+    agent none
+    
+    // - menggunakan ip karena error apabila memanggil service 'sonarqube' padahal masih di networks yang sama
+    // - ip dapat di isi dengan ip yang di terdapat di container sonarqube atau ip host 
+    // - sebagai contoh sekarang saya menggunakan ip pada host/laptop yang terassign dari wifi
+    IP_ADDRESS = "192.168.88.201"
 
     stages {
-        stage('versioning') {
+        stage('build') {
            agent {
                 docker { image 'alpine:latest' 
                          args '-u root'
                 }
             }
             steps {
-                sh 'echo "HELLO WOLRD"'
+                sh 'echo "ini stage stage build"'
+                
+            }
+        }
+
+        stage('unit test') {
+           agent {
+                docker { image 'alpine:latest' 
+                         args '-u root'
+                }
+            }
+            steps {
+                sh 'echo "ini stage unit test"'
                 
             }
         }
@@ -33,8 +45,8 @@ pipeline {
                         -Dsonar.projectKey=example-app \
                         -Dsonar.projectBaseDir=/var/jenkins_home/workspace/example-app \
                         -Dsonar.sources=web \
-                        -Dsonar.login='${USERNAME}' -Dsonar.password='${PASSWORD}' \
-                        -Dsonar.host.url=http://192.168.88.201:9000 \
+                        -Dsonar.login='admin' -Dsonar.password='admin' \
+                        -Dsonar.host.url=http://${IP_ADDRESS}:9000 \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true \
                         -Dsonar.scm.enabled=false -X"
