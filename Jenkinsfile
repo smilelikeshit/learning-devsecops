@@ -4,6 +4,8 @@ pipeline {
      environment {
         PASSWORD = "${env.PASSWORD}"
         USERNAME = "${env.USERNAME}"
+        PROJECTKEY = "${env.PROJECTKEY}"
+        URL = "${env.URL}"
     }
 
 
@@ -28,17 +30,23 @@ pipeline {
              }
 
              steps {
-                 
                     sh 'sonar-scanner \
-                        -Dsonar.projectKey=Bfy0qKYZH7xYJajBTfl6fHbuqdniQEgN \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=https://sonarqube.appserver.id \
+                        -Dsonar.projectKey="${PROJECTKEY}" \
+                        -Dsonar.sources=./dvwa \
+                        -Dsonar.host.url="${URL}" \
                         -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
                
              }
-        }
 
-           
+             post {
+                 always {
+                        archiveArtifacts artifacts: '/usr/src/.scannerwork/report-task.txt', fingerprint: true
+
+                 }
+             }
+
+
+        }  
         
     }
 }
