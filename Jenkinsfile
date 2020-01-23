@@ -34,7 +34,7 @@ pipeline {
                      sh "sonar-scanner \
                         -Dsonar.projectKey=example-app \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=example \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true -X"
