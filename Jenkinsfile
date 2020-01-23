@@ -4,8 +4,9 @@ pipeline {
     // - menggunakan ip karena error apabila memanggil service 'sonarqube' padahal masih di networks yang sama
     // - ip dapat di isi dengan ip yang di terdapat di container sonarqube atau ip host 
     // - sebagai contoh sekarang saya menggunakan ip pada host/laptop yang terassign dari wifi
-    IP_ADDRESS = "192.168.88.201"
-
+    environment {
+        IP_ADDRESS = "192.168.88.201"
+    }
     stages {
         stage('build') {
            agent {
