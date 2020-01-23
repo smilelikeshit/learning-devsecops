@@ -11,7 +11,7 @@ pipeline {
 
     stages {
 
-        agent none
+        agent any
         /* stage('versioning') {
             agent {
                 docker { image 'alpine:latest' 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('SonarQube analysis') {
 
-             agent any 
+            
              def scannerHome = tool 'sonarscanner';
              steps {
                     withSonarQubeEnv('sonar-server') {
