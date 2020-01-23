@@ -34,7 +34,7 @@ pipeline {
                         -Dsonar.projectBaseDir=/var/jenkins_home/workspace/example-app \
                         -Dsonar.sources=web \
                         -Dsonar.login='${USERNAME}' -Dsonar.password='${PASSWORD}' \
-                        -Dsonar.host.url=http://sonarqube:9000 \
+                        -Dsonar.host.url=http://192.168.88.201:9000 \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true \
                         -Dsonar.scm.enabled=false -X"
