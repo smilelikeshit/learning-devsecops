@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
      environment {
         PASSWORD = "${env.PASSWORD}"
@@ -10,8 +10,6 @@ pipeline {
 
 
     stages {
-
-        agent any
         stage('versioning') {
            /* agent {
                 docker { image 'alpine:latest' 
