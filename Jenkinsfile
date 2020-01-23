@@ -27,7 +27,7 @@ pipeline {
         stage('SonarQube analysis') {
 
              agent any 
-             def scannerHome = tool 'sonarscanner'
+             def scannerHome = tool 'sonarscanner';
              steps {
                     withSonarQubeEnv('sonar-server') {
                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=example \
