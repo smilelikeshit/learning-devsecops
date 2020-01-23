@@ -24,14 +24,14 @@ pipeline {
         stage('SonarQube analysis') {            
             agent {
                 docker {
-                    image 'mitch/sonarscanner:latest'
+                    image 'newtmitch/sonar-scanner:alpine'
                     args '-u root'
                 }
             }
             
              steps {
                     
-                     sh "-Dsonar-scanner -Dsonar.projectKey=example \
+                     sh "sonar-scanner -Dsonar.projectKey=example \
                         -Dsonar.sources=web \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e \
