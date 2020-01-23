@@ -31,16 +31,17 @@ pipeline {
 
              steps {
                     sh 'sonar-scanner \
-                        -Dsonar.projectKey="${PROJECTKEY}" \
+                        -Dsonar.projectKey=example \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url="${URL_SERVER}" \
-                        -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
+                        -Dsonar.host.url=http://sonarqube:9000 \
+                        -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e \
+                        -Dsonar.login="admin" -Dsonar.password="admin" -X'
                
              }
 
              post {
                  always {
-                        archiveArtifacts artifacts: '**/*/report-task.txt', fingerprint: true
+                        archiveArtifacts artifacts: '**/**/report-task.txt', fingerprint: true
 
                  }
              }
