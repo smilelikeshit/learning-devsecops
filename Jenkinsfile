@@ -25,14 +25,18 @@ pipeline {
         } */
 
         stage('SonarQube analysis') {
+
              agent any 
-             def scannerHome = tool 'sonarscanner';
-                withSonarQubeEnv('sonar-server') {
+             def scannerHome = tool 'sonarscanner'
+             steps {
+                    withSonarQubeEnv('sonar-server') {
                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=example \
                         -Dsonar.sources=web \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e" 
-                 }
+                }
+
+             }
         }  
         
     }
