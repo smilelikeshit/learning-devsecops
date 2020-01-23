@@ -37,7 +37,8 @@ pipeline {
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=example \
                         -Dsonar.language=php \
-                        -Dsonar.scm.exclusions.disabled=true -X"
+                        -Dsonar.scm.exclusions.disabled=true \
+                        -Dsonar.login=“admin” -Dsonar.login=“admin”-X"
                 }
         }
          
