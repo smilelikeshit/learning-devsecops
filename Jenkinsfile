@@ -33,7 +33,8 @@ pipeline {
                     
                      sh "sonar-scanner \
                         -Dsonar.projectKey=example-app \
-                        -Dsonar.sources=. \
+                        -Dsonar.projectBaseDir=/var/jenkins_home/workspace/example-app
+                        -Dsonar.sources=web \
                         -Dsonar.login='admin' -Dsonar.password='admin' \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.language=php \
