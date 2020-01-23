@@ -38,7 +38,7 @@ pipeline {
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true \
-                        -Dsonar.scm.enabled=true -X"
+                        -Dsonar.scm.enabled=false -X"
                 }
         }
          
