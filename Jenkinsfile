@@ -34,11 +34,11 @@ pipeline {
                      sh "sonar-scanner \
                         -Dsonar.projectKey=example-app \
                         -Dsonar.sources=. \
+                        -Dsonar.login="${USERNAME}" -Dsonar.password="${PASSWORD}" \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=example \
                         -Dsonar.language=php \
-                        -Dsonar.scm.exclusions.disabled=true \
-                        -Dsonar.login=“admin” -Dsonar.password=“admin” -X"
+                        -Dsonar.scm.exclusions.disabled=true -X"
                 }
         }
          
