@@ -23,7 +23,18 @@ pipeline {
         }
         
 
-        stage('SonarQube analysis') {            
+        stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'Maven 3.5') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
+            }
+        }
+
+        /*stage('SonarQube analysis') {            
              def scannerHome = tool 'sonarscanner'
              steps {
                     withSonarQubeEnv('sonar-server') {
@@ -33,7 +44,7 @@ pipeline {
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e" 
                     }
                 }
-        }
+        }*/
          
         
     }
