@@ -25,7 +25,7 @@ pipeline {
             agent {
                 docker {
                     image 'newtmitch/sonar-scanner:alpine'
-                    args '-u root'
+                    args '-u root --entrypoint=\'\''
                 }
             }
             
