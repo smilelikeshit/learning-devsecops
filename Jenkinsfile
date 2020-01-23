@@ -32,11 +32,11 @@ pipeline {
              steps {
                     
                      sh "sonar-scanner -Dsonar.projectKey=example \
-                        -Dsonar.sources=web \
+                        -Dsonar.sources=. \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e \
                         -Dsonar.language=php \
-                        -Dsonar.scm.exclusions.disabled=true" 
+                        -Dsonar.scm.exclusions.disabled=true -X" 
                     
                 }
         }
