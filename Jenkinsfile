@@ -5,7 +5,7 @@ pipeline {
     // - ip dapat di isi dengan ip yang di terdapat di container sonarqube atau ip host 
     // - sebagai contoh sekarang saya menggunakan ip pada host/laptop yang terassign dari wifi
     environment {
-        IP_ADDRESS = "192.168.88.201"
+        IP_ADDRESS = "x.x.x.x"
     }
     stages {
         stage('build') {
