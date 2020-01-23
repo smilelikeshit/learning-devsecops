@@ -38,7 +38,7 @@ pipeline {
                         -Dsonar.login=example \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true \
-                        -Dsonar.login=“admin” -Dsonar.login=“admin”-X"
+                        -Dsonar.login=“admin” -Dsonar.password=“admin”-X"
                 }
         }
          
