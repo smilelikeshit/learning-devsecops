@@ -5,7 +5,7 @@ pipeline {
         PASSWORD = "${env.PASSWORD}"
         USERNAME = "${env.USERNAME}"
         PROJECTKEY = "${env.PROJECTKEY}"
-        URL = "${env.URL}"
+        URL_SERVER = "${env.URL_SERVER}"
     }
 
 
@@ -33,7 +33,7 @@ pipeline {
                     sh 'sonar-scanner \
                         -Dsonar.projectKey="${PROJECTKEY}" \
                         -Dsonar.sources=./dvwa \
-                        -Dsonar.host.url="${URL}" \
+                        -Dsonar.host.url="${URL_SERVER}" \
                         -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
                
              }
