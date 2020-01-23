@@ -32,7 +32,7 @@ pipeline {
              steps {
                     sh 'sonar-scanner \
                         -Dsonar.projectKey="${PROJECTKEY}" \
-                        -Dsonar.sources=dvwa/ \
+                        -Dsonar.sources=. \
                         -Dsonar.host.url="${URL_SERVER}" \
                         -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
                
