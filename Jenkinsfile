@@ -32,7 +32,7 @@ pipeline {
              steps {
                     sh 'sonar-scanner \
                         -Dsonar.projectKey="${PROJECTKEY}" \
-                        -Dsonar.sources=. \
+                        -Dsonar.sources=dvwa/ \
                         -Dsonar.host.url="${URL_SERVER}" \
                         -Dsonar.login=jenkins -Dsonar.login="admin" -Dsonar.password="${PASSWORD}" -X'
                
@@ -40,7 +40,7 @@ pipeline {
 
              post {
                  always {
-                        archiveArtifacts artifacts: '/usr/src/.scannerwork/report-task.txt', fingerprint: true
+                        archiveArtifacts artifacts: '**/*/report-task.txt', fingerprint: true
 
                  }
              }
