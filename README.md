@@ -1,10 +1,8 @@
 # learning-devsecops
 
 ```bash
-docker network create --driver=bridge gateway
-
-docker network inspect gateway
-
+root@ubuntu:~$docker network create --driver=bridge gateway
+root@ubuntu:~$docker network inspect gateway
 root@ubuntu:~$docker network inspect gateway
 [
     {
@@ -27,7 +25,7 @@ root@ubuntu:~$docker network inspect gateway
 ....
 ```
 
-# Custom vm.max_map_count for issue sonarqube can't up
+Custom vm.max_map_count for issue elastic-search-max-virtual-memory
 ```bash
     root@ubuntu:~$sysctl -w vm.max_map_count=262144
 ```
