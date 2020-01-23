@@ -1,4 +1,4 @@
-pipeline 
+pipeline {
      agent none
      environment {
         PASSWORD = "${env.PASSWORD}"
@@ -25,18 +25,19 @@ pipeline
             agent {
                 docker {
                     image 'mitch/sonarscanner:latest'
-                    args '-u root -v '
+                    args '-u root'
                 }
             }
             
              steps {
-                    withSonarQubeEnv('sonar-server') {
-                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=example \
+                    
+                     sh "-Dsonar-scanner -Dsonar.projectKey=example \
                         -Dsonar.sources=web \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e \
-                        -Dsonar.language=php" 
-                    }
+                        -Dsonar.language=php \
+                        -Dsonar.scm.exclusions.disabled=true" 
+                    
                 }
         }
          
