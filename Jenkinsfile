@@ -39,14 +39,6 @@ pipeline {
                
              }
 
-             post {
-                 always {
-                        archiveArtifacts artifacts: '/usr/src/.scannerwork/', fingerprint: true
-
-                 }
-             }
-
-
         }  
         
     }
