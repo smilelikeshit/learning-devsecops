@@ -3,8 +3,6 @@ pipeline {
      environment {
         PASSWORD = "${env.PASSWORD}"
         USERNAME = "${env.USERNAME}"
-        PROJECTKEY = "${env.PROJECTKEY}"
-        URL_SERVER = "${env.URL_SERVER}"
     }
 
 
@@ -35,14 +33,12 @@ pipeline {
                         -Dsonar.projectKey=example-app \
                         -Dsonar.projectBaseDir=/var/jenkins_home/workspace/example-app \
                         -Dsonar.sources=web \
-                        -Dsonar.login='admin' -Dsonar.password='admin' \
-                        -Dsonar.host.url=http://172.19.0.7:9000 \
+                        -Dsonar.login='${USERNAME}' -Dsonar.password='${PASSWORD}' \
+                        -Dsonar.host.url=http://sonarqube:9000 \
                         -Dsonar.language=php \
                         -Dsonar.scm.exclusions.disabled=true \
                         -Dsonar.scm.enabled=false -X"
                 }
         }
-         
-        
     }
 }
