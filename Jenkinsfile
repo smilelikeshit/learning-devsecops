@@ -34,8 +34,8 @@ pipeline {
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e" 
                 }
 
-             }
-        } */ 
+             } */
+        }  
         
     }
 }
