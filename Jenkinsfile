@@ -20,9 +20,10 @@ pipeline {
                 sh 'echo "HELLO WOLRD"'
                 
             }
+        }
         
 
-        /*stage('SonarQube analysis') {
+        stage('SonarQube analysis') {
 
             
              def scannerHome = tool 'sonarscanner';
@@ -32,10 +33,10 @@ pipeline {
                         -Dsonar.sources=web \
                         -Dsonar.host.url=http://172.19.0.7:9000 \
                         -Dsonar.login=f895dc668a278fdefd52819c07453cd05c2b810e" 
+                    }
                 }
-
-             } */
-        }  
+        }
+         
         
     }
 }
